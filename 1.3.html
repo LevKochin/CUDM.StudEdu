@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Основные законы алгебры логики</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #4CAF50;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    h2 {
+      color: #2196F3;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      padding: 8px;
+      background: #e3f2fd;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      font-size: 1.1em;
+      border-radius: 4px;
+    }
+    p {
+      margin-bottom: 1em;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .highlight {
+      color: #ff5722;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Основные законы алгебры логики</h1>
+
+  <p>Алгебра логики включает ряд <strong>законов</strong>, которые помогают упростить выражения и построить логические схемы. Эти законы описывают правила работы с логическими операциями, такими как <span class="highlight">конъюнкция (И)</span>, <span class="highlight">дизъюнкция (ИЛИ)</span> и <span class="highlight">отрицание (НЕ)</span>.</p>
+
+  <h2>Основные законы алгебры логики</h2>
+
+  <ul>
+    <li><strong>Закон идемпотентности</strong>:
+      <ul>
+        <li><code>A ∨ A = A</code></li>
+        <li><code>A ∧ A = A</code></li>
+      </ul>
+    </li>
+    <li><strong>Закон поглощения</strong>:
+      <ul>
+        <li><code>A ∨ (A ∧ B) = A</code></li>
+        <li><code>A ∧ (A ∨ B) = A</code></li>
+      </ul>
+    </li>
+    <li><strong>Закон коммутативности</strong>:
+      <ul>
+        <li><code>A ∨ B = B ∨ A</code></li>
+        <li><code>A ∧ B = B ∧ A</code></li>
+      </ul>
+    </li>
+    <li><strong>Закон ассоциативности</strong>:
+      <ul>
+        <li><code>(A ∨ B) ∨ C = A ∨ (B ∨ C)</code></li>
+        <li><code>(A ∧ B) ∧ C = A ∧ (B ∧ C)</code></li>
+      </ul>
+    </li>
+    <li><strong>Закон дистрибутивности</strong>:
+      <ul>
+        <li><code>A ∧ (B ∨ C) = (A ∧ B) ∨ (A ∧ C)</code></li>
+        <li><code>A ∨ (B ∧ C) = (A ∨ B) ∧ (A ∨ C)</code></li>
+      </ul>
+    </li>
+    <li><strong>Закон двойного отрицания</strong>:
+      <ul>
+        <li><code>¬(¬A) = A</code></li>
+      </ul>
+    </li>
+    <li><strong>Закон де Моргана</strong>:
+      <ul>
+        <li><code>¬(A ∨ B) = ¬A ∧ ¬B</code></li>
+        <li><code>¬(A ∧ B) = ¬A ∨ ¬B</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Представление логических функций в базисе «И», «ИЛИ», «НЕ»</h2>
+
+  <p>Любую логическую функцию можно представить в базисе <strong>конъюнкции</strong> (И), <strong>дизъюнкции</strong> (ИЛИ) и <strong>отрицания</strong> (НЕ). Основные способы представления логических функций включают:</p>
+
+  <ul>
+    <li><strong>Совершенная дизъюнктивная нормальная форма (СДНФ)</strong> — это форма, в которой функция представлена как дизъюнкция конъюнкций. Пример: <code>(A ∧ ¬B) ∨ (¬A ∧ B)</code>.</li>
+    <li><strong>Совершенная конъюнктивная нормальная форма (СКНФ)</strong> — это форма, в которой функция представлена как конъюнкция дизъюнкций. Пример: <code>(A ∨ B) ∧ (¬A ∨ ¬B)</code>.</li>
+  </ul>
+
+  Leo, [08.11.2024 9:43]
+  <h2>Заключение</h2>
+  <p>Основные законы алгебры логики позволяют упростить выражения и преобразовывать логические функции для представления их в различных формах. Базис «И», «ИЛИ», «НЕ» является полным и позволяет выразить любую логическую функцию, что делает его фундаментальным для построения логических схем и цифровых устройств.</p>
+
+</div>
+
+</body>
+</html>
