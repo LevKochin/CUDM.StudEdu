@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Топологическая сортировка и поиск сильно связных компонентов на C#</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Топологическая сортировка и поиск сильно связных компонентов на C#</h1>
+
+  <h2>Описание</h2>
+  <p>Этот код на C# выполняет топологическую сортировку и поиск сильно связных компонентов в графе с использованием алгоритмов Косарайю и Тарьяна. Код включает класс <code>Graph</code> для представления графа, а также методы для выполнения топологической сортировки и поиска ССКомпонентов.</p>
+
+  <h2>Код на C#</h2>
+  <pre>
+using System;
+using System.Collections.Generic;
+
+public class Graph
+{
+    private readonly int vertices;
+    private readonly List&lt;int&gt;[] adj;
+
+    public Graph(int vertices)
+    {
+        this.vertices = vertices;
+        adj = new List&lt;int&gt;[vertices];
+        for (int i = 0; i &lt; vertices; i++)
+            adj[i] = new List&lt;int&gt;();
+    }
+
+    public void AddEdge(int u, int v)
+    {
+        adj[u].Add(v);
+    }
+
+    public List&lt;int&gt; TopologicalSort()
+    {
+        var stack = new Stack&lt;int&gt;();
+        var visited = new bool[vertices];
+
+        for (int i = 0; i &lt; vertices; i++)
+            if (!visited[i])
+                TopologicalSortUtil(i, visited, stack);
+
+        var sortedOrder = new List&lt;int&gt;();
+        while (stack.Count &gt; 0)
+            sortedOrder.Add(stack.Pop());
+
+        return sortedOrder;
+    }
+
+    private void TopologicalSortUtil(int v, bool[] visited, Stack&lt;int&gt; stack)
+    {
+        visited[v] = true;
+
+        foreach (var neighbor in adj[v])
+            if (!visited[neighbor])
+                TopologicalSortUtil(neighbor, visited, stack);
+
+        stack.Push(v);
+    }
+
+    public List&lt;List&lt;int&gt;&gt; FindSCCsKosaraju()
+    {
+        var stack = new Stack&lt;int&gt;();
+        var visited = new bool[vertices];
+
+        for (int i = 0; i &lt; vertices; i++)
+            if (!visited[i])
+                FillOrder(i, visited, stack);
+
+        var transposedGraph = GetTranspose();
+
+        Array.Fill(visited, false);
+        var sccs = new List&lt;List&lt;int&gt;&gt;();
+
+        while (stack.Count &gt; 0)
+        {
+            int v = stack.Pop();
+            if (!visited[v])
+            {
+                var component = new List&lt;int&gt;();
+                transposedGraph.DFSUtil(v, visited, component);
+                sccs.Add(component);
+            }
+        }
+
+        return sccs;
+    }
+
+    private void FillOrder(int v, bool[] visited, Stack&lt;int&gt; stack)
+    {
+        visited[v] = true;
+        foreach (var neighbor in adj[v])
+            if (!visited[neighbor])
+                FillOrder(neighbor, visited, stack);
+
+        stack.Push(v);
+    }
+
+    private Graph GetTranspose()
+    {
+        var transposedGraph = new Graph(vertices);
+        for (int v = 0; v &lt; vertices; v++)
+            foreach (var neighbor in adj[v])
+                transposedGraph.AddEdge(neighbor, v);
+
+        return transposedGraph;
+    }
+
+    private void DFSUtil(int v, bool[] visited, List&lt;int&gt; component)
+    {
+        visited[v] = true;
+        component.Add(v);
+
+        foreach (var neighbor in adj[v])
+            if (!visited[neighbor])
+                DFSUtil(neighbor, visited, component);
+    }
+
+    public List&lt;List&lt;int&gt;&gt; FindSCCTarjan()
+    {
+        var index = 0;
+        var stack = new Stack&lt;int&gt;();
+        var indices = new int[vertices];
+        var lowlinks = new int[vertices];
+        Array.Fill(indices, -1);
+        var onStack = new bool[vertices];
+        var sccs = new List&lt;List&lt;int&gt;&gt;();
+
+        for (int i = 0; i &lt; vertices; i++)
+            if (indices[i] == -1)
+                StrongConnect(i, ref index, stack, indices, lowlinks, onStack, sccs);
+
+        return sccs;
+    }
+
+    private void StrongConnect(int v, ref int index, Stack&lt;int&gt; stack, int[] indices, int[] lowlinks, bool[] onStack, List&lt;List&lt;int&gt;&gt; sccs)
+    {
+        indices[v] = lowlinks[v] = index++;
+        stack.Push(v);
+        onStack[v] = true;
+
+        foreach (var neighbor in adj[v])
+        {
+            if (indices[neighbor] == -1)
+            {
+                StrongConnect(neighbor, ref index, stack, indices, lowlinks, onStack, sccs);
+                lowlinks[v] = Math.Min(lowlinks[v], lowlinks[neighbor]);
+            }
+            else if (onStack[neighbor])
+            {
+                lowlinks[v] = Math.Min(lowlinks[v], indices[neighbor]);
+            }
+        }
+
+        if (lowlinks[v] == indices[v])
+        {
+            var component = new List&lt;int&gt;();
+            int w;
+            do
+            {
+                w = stack.Pop();
+                onStack[w] = false;
+                component.Add(w);
+            } while (w != v);
+            sccs.Add(component);
+        }
+    }
+}
+
+// Пример использования
+public class Program
+{
+    public static void Main()
+    {
+        var graph = new Graph(5);
+        graph.AddEdge(0, 2);
+        graph.AddEdge(2, 1);
+        graph.AddEdge(1, 0);
+        graph.AddEdge(0, 3);
+        graph.AddEdge(3, 4);
+
+        Console.WriteLine("Топологическая сортировка:");
+        var topSort = graph.TopologicalSort();
+        Console.WriteLine(string.Join(" ", topSort));
+
+        Console.WriteLine("\nСильно связные компоненты (алгоритм Косарайю):");
+        var sccsKosaraju = graph.FindSCCsKosaraju();
+        foreach (var scc in sccsKosaraju)
+            Console.WriteLine(string.Join(" ", scc));
+
+        Console.WriteLine("\nСильно связные компоненты (алгоритм Тарьяна):");
+        var sccsTarjan = graph.FindSCCTarjan();
+        foreach (var scc in sccsTarjan)
+            Console.WriteLine(string.Join(" ", scc));
+    }
+}
+    </pre>
+
+  <h2>Описание методов</h2>
+  <ul>
+    <li><strong>Топологическая сортировка</strong>: выполняется методом <code>TopologicalSort()</code>, использующим обход DFS для упорядочивания вершин.</li>
+    <li><strong>Алгоритм Косарайю</strong>: выполняется методом <code>FindSCCsKosaraju()</code>, использующим два обхода графа — прямой и обратный после транспонирования графа.</li>
+    <li><strong>Алгоритм Тарьяна</strong>: выполняется методом <code>FindSCCTarjan()</code>, который находит сильно связные компоненты за один проход DFS.</li>
+  </ul>
+
+  <h2>Заключение</h2>
+  <p>Этот код демонстрирует выполнение топологической сортировки и поиск сильно связных компонентов на языке C#. Использование алгоритмов Косарайю и Тарьяна позволяет эффективно находить компоненты в графе, а топологическая сортировка помогает упорядочивать задачи в зависимости от их зависимостей.</p>
+
+</div>
+
+</body>
+</html>
