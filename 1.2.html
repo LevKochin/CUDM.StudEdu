@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Понятия полноты системы логических функций</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        h2 {
+            color: #2196F3;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 8px;
+            background: #e3f2fd;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 1.1em;
+            border-radius: 4px;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .highlight {
+            color: #ff5722;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Понятия полноты системы логических функций</h1>
+
+    <p>В алгебре логики <strong>полнота системы логических функций</strong> означает, что с помощью набора базисных функций можно выразить любую логическую функцию. Система логических функций называется <span class="highlight">полной</span>, если любая логическая операция может быть представлена с помощью функций из этой системы.</p>
+
+    <h2>Основные логические функции и операции</h2>
+    <p>Некоторые базовые логические функции включают:</p>
+
+    <ul>
+        <li><strong>Отрицание (НЕ)</strong> — операция инверсии значения переменной. Обозначается как <code>¬A</code>.</li>
+        <li><strong>Конъюнкция (И)</strong> — возвращает <code>1</code> только при значениях <code>1</code> для обеих переменных. Обозначается как <code>A ∧ B</code>.</li>
+        <li><strong>Дизъюнкция (ИЛИ)</strong> — возвращает <code>1</code>, если хотя бы одна из переменных равна <code>1</code>. Обозначается как <code>A ∨ B</code>.</li>
+    </ul>
+
+    <h2>Базис логических функций</h2>
+    <p>Важное понятие в алгебре логики — <strong>логический базис</strong>. Это минимальный набор логических операций, с помощью которого можно выразить любую логическую функцию. Примеры базисов:</p>
+
+    <ul>
+        <li><strong>Базис {НЕ, И, ИЛИ}</strong> — классический базис, позволяющий выразить любую функцию через комбинацию операций <code>НЕ</code>, <code>И</code> и <code>ИЛИ</code>.</li>
+        <li><strong>Базис {НЕ, И}</strong> или <strong>{НЕ, ИЛИ}</strong> — называют функциями Шеффера и Пирса. Например, функция Шеффера <code>NAND</code> сама по себе является полной.</li>
+        <li><strong>Базис {NAND}</strong> — функция <code>NAND</code> (штрих Шеффера) является полной, поскольку с ее помощью можно выразить <code>НЕ</code>, <code>ИЛИ</code> и <code>И</code>.</li>
+    </ul>
+
+    <h2>Пример использования функции NAND для построения базиса</h2>
+    <p>Рассмотрим, как с помощью функции <code>NAND</code> можно реализовать базовые операции:</p>
+    <ul>
+        <li><code>НЕ A = A NAND A</code></li>
+        <li><code>A И B = (A NAND B) NAND (A NAND B)</code></li>
+        <li><code>A ИЛИ B = (A NAND A) NAND (B NAND B)</code></li>
+    </ul>
+    <p>Таким образом, <span class="highlight">функция NAND</span> является полной, так как позволяет выразить все другие логические операции.</p>
+
+    <h2>Заключение</h2>
+    <p>Полнота системы логических функций — это ключевое понятие для создания универсальных логических схем. Используя полный набор функций, можно строить цифровые схемы для любого логического выражения. Это позволяет проектировать более сложные системы на основе небольшого набора логических операций, что является основой для разработки вычислительных устройств.</p>
+
+</div>
+
+</body>
+</html>
