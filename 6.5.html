@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Рекурсивные определения и алгоритмы, конструирование и верификация программ</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-csharp.min.js"></script>
   <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
@@ -10,26 +13,31 @@
 <div class="container">
   <h1>Рекурсивные определения и алгоритмы, конструирование и верификация программ</h1>
 
+  <div class="navigation-buttons">
+    <a href="6.4.html" class="button">⬅ Назад</a>
+    <a href="6.6.html" class="button">Вперёд ➡</a>
+  </div>
+
   <h2>Рекурсивные определения и алгоритмы</h2>
   <p><strong>Рекурсия</strong> — это метод определения функций и алгоритмов, при котором функция или алгоритм вызывает сам себя. Рекурсивные определения особенно полезны для решения задач, которые могут быть разбиты на подзадачи того же типа.</p>
 
   <h3>Пример рекурсивного определения: факториал числа</h3>
   <p>Факториал числа <code>n</code> можно определить рекурсивно как:</p>
-  <pre>
+  <pre><code class="language-csharp">
 n! = 1, если n = 0;
 n! = n * (n - 1)!, если n > 0.
-    </pre>
+    </code></pre>
 
   <h3>Пример рекурсивного алгоритма: вычисление факториала</h3>
   <p>Алгоритм для вычисления факториала с использованием рекурсии на языке C#:</p>
-  <pre>
+  <pre><code class="language-csharp">
 static int Factorial(int n)
 {
     if (n <= 1)
         return 1;
     return n * Factorial(n - 1);
 }
-    </pre>
+    </code></pre>
 
   <h3>Особенности рекурсивных алгоритмов</h3>
   <ul>
@@ -43,14 +51,14 @@ static int Factorial(int n)
 
   <h3>Пример рекурсивного алгоритма: последовательность Фибоначчи</h3>
   <p>Алгоритм для вычисления <code>n</code>-го числа Фибоначчи:</p>
-  <pre>
+  <pre><code class="language-csharp">
 static int Fibonacci(int n)
 {
     if (n <= 1)
         return n;
     return Fibonacci(n - 1) + Fibonacci(n - 2);
 }
-    </pre>
+    </code></pre>
 
   <p>Однако для задач с большими значениями <code>n</code> этот алгоритм неэффективен из-за высокой сложности <code>O(2^n)</code>, и его можно оптимизировать с использованием мемоизации или циклов.</p>
 
@@ -93,6 +101,9 @@ static int Fibonacci(int n)
   <p>Рекурсивные алгоритмы и определения играют важную роль в решении задач, которые можно разбить на подзадачи. Программирование рекурсивных алгоритмов требует внимания к базовому случаю и условиям завершения. Конструирование программ с использованием подходов «сверху вниз» и «снизу вверх» помогает создавать структурированные и поддерживаемые программы. Верификация программ, включая тестирование и анализ, обеспечивает их надёжность и соответствие требованиям.</p>
 
 </div>
-
+<div class="navigation-buttons">
+  <a href="6.4.html" class="button">⬅ Назад</a>
+  <a href="6.6.html" class="button">Вперёд ➡</a>
+</div>
 </body>
 </html>

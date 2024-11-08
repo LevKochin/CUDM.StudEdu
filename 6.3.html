@@ -3,29 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Типы данных и их представление на логическом и физическом уровнях</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-csharp.min.js"></script>
   <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 
 <div class="container">
   <h1>Стандартные типы данных и представление данных на логическом и физическом уровнях</h1>
-
+  <div class="navigation-buttons">
+    <a href="6.2.html" class="button">⬅ Назад</a>
+    <a href="6.4.html" class="button">На главную ➡</a>
+  </div>
   <h2>Стандартные типы данных</h2>
   <p>Стандартные типы данных обеспечивают основу для представления и хранения информации в языках программирования. К основным типам данных относятся:</p>
   <ul>
-    <li><strong>Целочисленные (integer):</strong> Используются для хранения целых чисел. Примеры: <code>int</code> в C#, <code>int</code> в Java.</li>
-    <li><strong>С плавающей точкой (float, double):</strong> Хранят числа с дробной частью. Примеры: <code>float</code> и <code>double</code> в C#, <code>float</code> и <code>double</code> в Python.</li>
-    <li><strong>Логические (boolean):</strong> Содержат два значения — истина (true) и ложь (false). Примеры: <code>bool</code> в C#, <code>boolean</code> в Java.</li>
-    <li><strong>Символьные (char):</strong> Хранят одиночные символы, такие как буквы или цифры. Примеры: <code>char</code> в C#, <code>char</code> в C++.</li>
-    <li><strong>Строковые (string):</strong> Представляют последовательности символов, например, слова и предложения. Примеры: <code>string</code> в C#, <code>String</code> в Java.</li>
-    <li><strong>Массивы (arrays):</strong> Хранят коллекцию данных одного типа. Примеры: <code>int[]</code> в C#, <code>int[]</code> в Java.</li>
+    <li><strong>Целочисленные (integer):</strong> Используются для хранения целых чисел. Примеры: <code class="language-csharp">int</code> в C#, <code class="language-csharp">int</code> в Java.</li>
+    <li><strong>С плавающей точкой (float, double):</strong> Хранят числа с дробной частью. Примеры: <code class="language-csharp">float</code> и <code class="language-csharp">double</code> в C#, <code class="language-csharp">float</code> и <code class="language-csharp">double</code> в Python.</li>
+    <li><strong>Логические (boolean):</strong> Содержат два значения — истина (true) и ложь (false). Примеры: <code class="language-csharp">bool</code> в C#, <code class="language-csharp">boolean</code> в Java.</li>
+    <li><strong>Символьные (char):</strong> Хранят одиночные символы, такие как буквы или цифры. Примеры: <code class="language-csharp">char</code> в C#, <code class="language-csharp">char</code> в C++.</li>
+    <li><strong>Строковые (string):</strong> Представляют последовательности символов, например, слова и предложения. Примеры: <code class="language-csharp">string</code> в C#, <code class="language-csharp">String</code> в Java.</li>
+    <li><strong>Массивы (arrays):</strong> Хранят коллекцию данных одного типа. Примеры: <code class="language-csharp">int[]</code> в C#, <code class="language-csharp">int[]</code> в Java.</li>
   </ul>
 
   <h2>Логический и физический уровни представления данных</h2>
   <p>Данные в компьютерных системах представлены на двух уровнях: логическом и физическом.</p>
 
   <h3>Логический уровень</h3>
-  <p>Логический уровень описывает данные на абстрактном уровне, как они видны программисту или пользователю. На этом уровне данные представляются типами данных, такими как <code>int</code>, <code>float</code>, <code>string</code>, а также структурами данных, такими как массивы и списки. Логический уровень описывает, что представляют собой данные, но не то, как они хранятся в памяти.</p>
+  <p>Логический уровень описывает данные на абстрактном уровне, как они видны программисту или пользователю. На этом уровне данные представляются типами данных, такими как <code class="language-csharp">int</code>, <code class="language-csharp">float</code>, <code class="language-csharp">string</code>, а также структурами данных, такими как массивы и списки. Логический уровень описывает, что представляют собой данные, но не то, как они хранятся в памяти.</p>
 
   <h3>Физический уровень</h3>
   <p>Физический уровень описывает, как данные представлены в памяти компьютера. Например, целые числа могут храниться в виде двоичных чисел фиксированной длины, строки — как массивы байтов. На физическом уровне каждый тип данных имеет определённую структуру, которая зависит от используемого процессора и архитектуры системы.</p>
@@ -34,37 +40,37 @@
 
   <h3>Целочисленные типы</h3>
   <ul>
-    <li><strong>C#:</strong> Целочисленные типы включают <code>int</code> (32 бита), <code>long</code> (64 бита), <code>short</code> (16 бит).</li>
+    <li><strong>C#:</strong> Целочисленные типы включают <code class="language-csharp">int</code> (32 бита), <code class="language-csharp">long</code> (64 бита), <code class="language-csharp">short</code> (16 бит).</li>
     <li><strong>Python:</strong> Целые числа не имеют фиксированного размера и автоматически расширяются при необходимости.</li>
-    <li><strong>Java:</strong> <code>int</code> — 32 бита, <code>long</code> — 64 бита, <code>short</code> — 16 бит.</li>
+    <li><strong>Java:</strong> <code class="language-csharp">int</code> — 32 бита, <code class="language-csharp">long</code> — 64 бита, <code class="language-csharp">short</code> — 16 бит.</li>
   </ul>
 
   <h3>Типы с плавающей точкой</h3>
   <ul>
-    <li><strong>C#:</strong> <code>float</code> (32 бита) и <code>double</code> (64 бита) для представления чисел с дробной частью.</li>
-    <li><strong>Python:</strong> <code>float</code> — 64-битное число с плавающей точкой двойной точности (аналог <code>double</code>).</li>
-    <li><strong>Java:</strong> <code>float</code> — 32 бита, <code>double</code> — 64 бита.</li>
+    <li><strong>C#:</strong> <code class="language-csharp">float</code> (32 бита) и <code class="language-csharp">double</code> (64 бита) для представления чисел с дробной частью.</li>
+    <li><strong>Python:</strong> <code class="language-csharp">float</code> — 64-битное число с плавающей точкой двойной точности (аналог <code class="language-csharp">double</code>).</li>
+    <li><strong>Java:</strong> <code class="language-csharp">float</code> — 32 бита, <code class="language-csharp">double</code> — 64 бита.</li>
   </ul>
 
   <h3>Логические типы</h3>
   <ul>
-    <li><strong>C#:</strong> <code>bool</code> (содержит <code>true</code> или <code>false</code>).</li>
-    <li><strong>Python:</strong> <code>bool</code> (значения <code>True</code> и <code>False</code>).</li>
-    <li><strong>Java:</strong> <code>boolean</code> (значения <code>true</code> и <code>false</code>).</li>
+    <li><strong>C#:</strong> <code class="language-csharp">bool</code> (содержит <code class="language-csharp">true</code> или <code class="language-csharp">false</code>).</li>
+    <li><strong>Python:</strong> <code class="language-csharp">bool</code> (значения <code class="language-csharp">True</code> и <code class="language-csharp">False</code>).</li>
+    <li><strong>Java:</strong> <code class="language-csharp">boolean</code> (значения <code class="language-csharp">true</code> и <code class="language-csharp">false</code>).</li>
   </ul>
 
   <h3>Строковые типы</h3>
   <ul>
-    <li><strong>C#:</strong> <code>string</code> — неизменяемый тип данных для хранения строк.</li>
-    <li><strong>Python:</strong> <code>str</code> — также неизменяемый тип, поддерживает Unicode.</li>
-    <li><strong>Java:</strong> <code>String</code> — неизменяемый тип, поддерживающий Unicode.</li>
+    <li><strong>C#:</strong> <code class="language-csharp">string</code> — неизменяемый тип данных для хранения строк.</li>
+    <li><strong>Python:</strong> <code class="language-csharp">str</code> — также неизменяемый тип, поддерживает Unicode.</li>
+    <li><strong>Java:</strong> <code class="language-csharp">String</code> — неизменяемый тип, поддерживающий Unicode.</li>
   </ul>
 
   <h3>Массивы</h3>
   <ul>
-    <li><strong>C#:</strong> Массивы имеют фиксированный размер, определяемый при создании. Пример: <code>int[] numbers = new int[5];</code></li>
-    <li><strong>Python:</strong> Массивы представлены типом <code>list</code>, который может изменяться в размере. Пример: <code>numbers = [1, 2, 3]</code>.</li>
-    <li><strong>Java:</strong> Массивы также фиксированного размера, например: <code>int[] numbers = new int[5];</code></li>
+    <li><strong>C#:</strong> Массивы имеют фиксированный размер, определяемый при создании. Пример: <code class="language-csharp">int[] numbers = new int[5];</code></li>
+    <li><strong>Python:</strong> Массивы представлены типом <code class="language-csharp">list</code>, который может изменяться в размере. Пример: <code class="language-csharp">numbers = [1, 2, 3]</code>.</li>
+    <li><strong>Java:</strong> Массивы также фиксированного размера, например: <code class="language-csharp">int[] numbers = new int[5];</code></li>
   </ul>
 
   <h2>Представление структур данных</h2>
@@ -72,22 +78,25 @@
 
   <h3>Списки и коллекции</h3>
   <ul>
-    <li><strong>C#:</strong> Используются <code>List&lt;T&gt;</code>, <code>Queue&lt;T&gt;</code>, <code>Dictionary&lt;K,V&gt;</code>.</li>
-    <li><strong>Python:</strong> Списки представлены типом <code>list</code>, очереди — модулем <code>collections.deque</code>, словари — типом <code>dict</code>.</li>
-    <li><strong>Java:</strong> Коллекции включают <code>ArrayList</code>, <code>LinkedList</code>, <code>HashMap</code>.</li>
+    <li><strong>C#:</strong> Используются <code class="language-csharp">List&lt;T&gt;</code>, <code class="language-csharp">Queue&lt;T&gt;</code>, <code class="language-csharp">Dictionary&lt;K,V&gt;</code>.</li>
+    <li><strong>Python:</strong> Списки представлены типом <code class="language-csharp">list</code>, очереди — модулем <code class="language-csharp">collections.deque</code>, словари — типом <code class="language-csharp">dict</code>.</li>
+    <li><strong>Java:</strong> Коллекции включают <code class="language-csharp">ArrayList</code>, <code class="language-csharp">LinkedList</code>, <code class="language-csharp">HashMap</code>.</li>
   </ul>
 
   <h3>Множества</h3>
   <ul>
-    <li><strong>C#:</strong> <code>HashSet&lt;T&gt;</code> для уникальных элементов.</li>
-    <li><strong>Python:</strong> Тип <code>set</code> для хранения уникальных значений.</li>
-    <li><strong>Java:</strong> <code>HashSet</code> для уникальных элементов.</li>
+    <li><strong>C#:</strong> <code class="language-csharp">HashSet&lt;T&gt;</code> для уникальных элементов.</li>
+    <li><strong>Python:</strong> Тип <code class="language-csharp">set</code> для хранения уникальных значений.</li>
+    <li><strong>Java:</strong> <code class="language-csharp">HashSet</code> для уникальных элементов.</li>
   </ul>
 
   <h2>Заключение</h2>
   <p>Типы данных играют важную роль в представлении информации на логическом и физическом уровнях, где логический уровень определяет структуру данных, а физический — их реальное расположение в памяти. Разные языки программирования предоставляют свои способы и структуры для представления данных, что позволяет программистам выбирать подходящие инструменты для решения конкретных задач.</p>
 
 </div>
-
+<div class="navigation-buttons">
+  <a href="6.2.html" class="button">⬅ Назад</a>
+  <a href="6.4.html" class="button">На главную ➡</a>
+</div>
 </body>
 </html>

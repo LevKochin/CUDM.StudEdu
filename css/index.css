@@ -63,3 +63,39 @@ td {
     color: #ff5722;
     font-weight: bold;
 }
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 550px;
+    margin: 20px 0;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 550px;
+    margin: 20px 0;
+}
+
+.navigation-buttons .button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navigation-buttons .button:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navigation-buttons .button:active {
+    background-color: #388e3c;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
